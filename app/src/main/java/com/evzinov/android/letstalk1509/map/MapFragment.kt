@@ -1,6 +1,6 @@
 package com.evzinov.android.letstalk1509.map
 
-//6f49644f-3d40-435b-8e6f-c590d7c0565c
+
 
 
 //
