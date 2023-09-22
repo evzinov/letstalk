@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    //id("kotlin-kapt")
+    id("com.google.devtools.ksp") version "1.8.21-1.0.11"
 }
 
 android {
@@ -31,17 +31,29 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        //sourceCompatibility = JavaVersion.VERSION_1_8
+        //targetCompatibility = JavaVersion.VERSION_1_8
+
+//inventory
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        //jvmTarget = "1.8"
+
+        //inventory
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        // kotlinCompilerExtensionVersion = "1.4.3"
+
+        //invent
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
     packaging {
         resources {
@@ -74,8 +86,15 @@ dependencies {
     //yandex map
     implementation ("com.yandex.android:maps.mobile:4.3.1-lite")
     //Room
-    implementation ("androidx.room:room-ktx:2.4.3")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
-    //kapt ("androidx.room:room-compiler:2.4.3")
+//    implementation ("androidx.room:room-ktx:2.4.3")
+//    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+//    //kapt ("androidx.room:room-compiler:2.4.3")
+
+    //Room (из курсов- инвентори..)
+    implementation("androidx.room:room-runtime:${rootProject.extra["room_version"]}")
+    implementation("androidx.core:core-ktx:1.10.1")
+    ksp("androidx.room:room-compiler:${rootProject.extra["room_version"]}")
+    implementation("androidx.room:room-ktx:${rootProject.extra["room_version"]}")
+
 
 }
