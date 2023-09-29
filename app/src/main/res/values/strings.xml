@@ -13,4 +13,11 @@
 
     <string name="name1">Harry Potter</string>
     <string name="date1">28.07.23</string>
+
+    <string name="change_profile_photo">Изменить фото профиля</string>
+    <string name="change_name">Изменить имя</string>
+    <string name="change_phone_number">Изменить номер телефона</string>
+    <string name="change_your_information">Изменить сведения о себе</string>
+    <string name="log_out_account">Выйти из аккаунта</string>
+
 </resources>

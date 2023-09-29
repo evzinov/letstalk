@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 //import androidx.compose.ui.tooling.preview.Preview
@@ -31,19 +32,7 @@ import com.evzinov.android.letstalk1509.R
 import com.evzinov.android.letstalk1509.data.MainDatabase
 import com.evzinov.android.letstalk1509.ui.theme.Letstalk1509Theme
 
-//@Composable
-//fun MyScreen() {
-//    val context = LocalContext.current
-//    val database = MainDatabase.getDb(context)
-//    val userD = database.getDao()
-//
-//    val userId = 1
-//    val user = userD.getUserById(userId)
-//
-//    user?.let {
-//        AccountMenu(name = it.name, message = it.description)
-//    }
-//}
+
 
 @Composable
 
@@ -58,7 +47,7 @@ fun AccountMenu(name: String, message: String) {
         {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(start = 4.dp)
+                modifier = Modifier.padding(start = 8.dp, top = 8.dp, end = 4.dp, bottom = 8.dp)
             ) {
                 Image(
                     painter = painterResource(R.drawable.harry_potter1),
@@ -95,24 +84,28 @@ fun AccountMenu(name: String, message: String) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 32.dp)
+                    .padding(start = 32.dp, bottom = 4.dp)
             ) {
                 Row(
                     modifier = Modifier.clickable { },
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-                    Image(
-                        painter = painterResource(R.drawable.harry_potter1),
-                        contentDescription = "image",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                    )
                     Text(
-                        modifier = Modifier.padding(start = 20.dp),
-                        text = message
+                        modifier = Modifier.padding(bottom = 4.dp),
+                        text = stringResource(R.string.change_profile_photo)
+                    )
+                }
+                Row(
+                    modifier = Modifier.clickable {
+                       // navController.navigate("changeUserNameScreen/${userId}")
+                    },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    Text(
+                        modifier = Modifier.padding(bottom = 4.dp),
+                        text = stringResource(R.string.change_name)
                     )
                 }
                 Row(
@@ -120,37 +113,9 @@ fun AccountMenu(name: String, message: String) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-
-                    Image(
-                        painter = painterResource(R.drawable.harry_potter1),
-                        contentDescription = "image",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                    )
                     Text(
-                        modifier = Modifier.padding(start = 20.dp),
-                        text = message
-                    )
-                }
-                Row(
-                    modifier = Modifier.clickable { },
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-
-
-                    Image(
-                        painter = painterResource(R.drawable.harry_potter1),
-                        contentDescription = "image",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                    )
-                    Text(
-                        modifier = Modifier.padding(start = 20.dp),
-                        text = message
+                        modifier = Modifier.padding(bottom = 4.dp),
+                        text = stringResource(R.string.change_phone_number)
 
                     )
                 }
@@ -159,21 +124,35 @@ fun AccountMenu(name: String, message: String) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
 
-
-                    Image(
-                        painter = painterResource(R.drawable.harry_potter1),
-                        contentDescription = "image",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .size(20.dp)
-                            .clip(CircleShape)
-                    )
                     Text(
-                        modifier = Modifier.padding(start = 20.dp),
-                        text = message
+                        modifier = Modifier.padding(bottom = 4.dp),
+                        text = stringResource(R.string.change_your_information)
 
                     )
                 }
+
+
+                Row(
+                    modifier = Modifier.clickable { },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+
+                    Image(
+                        painter = painterResource(R.drawable.baseline_close_24),
+                        contentDescription = "image",
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier.size(20.dp)
+
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 20.dp),
+                        text = stringResource(R.string.log_out_account)
+
+                    )
+                }
+
+
             }
         }
     }
